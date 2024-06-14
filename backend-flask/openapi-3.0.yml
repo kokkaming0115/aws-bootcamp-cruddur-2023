@@ -5,7 +5,7 @@ info:
     
 servers:
   - url: https://api.server.test/v1
-paths:
+paths: 
   /api/activities/home:
     get:
       description: 'Return a feed of activity based on all users'
@@ -14,6 +14,20 @@ paths:
       responses:
         '200':
           description: Returns an array of activities"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+  /api/activites/notifications:
+    get:
+      description: 'Return a feed of activity for all of those I follow '
+      tags:
+        - activities
+      responses:
+        '200':
+          description: "Returns an array of activities"
           content:
             application/json:
               schema:
