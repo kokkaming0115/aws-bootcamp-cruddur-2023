@@ -4,6 +4,7 @@ services:
     environment:
       FRONTEND_URL: "http://localhost:3000"
       BACKEND_URL: "http://localhost:4567"
+      
     build: ./backend-flask
     ports:
       - "4567:4567"
@@ -12,6 +13,10 @@ services:
   frontend-react-js:
     environment:
       REACT_APP_BACKEND_URL: "http://localhost:4567"
+      REACT_APP_AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
+      REACT_APP_AWS_COGNITO_REGION: "${AWS_DEFAULT_REGION}"
+      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_WByzg3evE"
+      REACT_APP_CLIENT_ID: "6eb6c8ojipkptpivs5aoe7telu"
     build: ./frontend-react-js
     ports:
       - "3000:3000"
